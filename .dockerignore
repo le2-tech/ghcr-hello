@@ -1,0 +1,14 @@
+.git
+.gitignore
+.github/
+
+# Local tooling and editor settings
+.vscode/
+.idea/
+
+# OS metadata
+.DS_Store
+
+# Runtime or diagnostic output
+*.log
+*.tmp
