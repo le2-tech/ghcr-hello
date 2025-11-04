@@ -57,7 +57,3 @@ jobs:
           docker buildx imagetools create \
             -t $IMAGE_NAME:latest \
             $IMAGE_NAME:${{ github.sha }}
-      - name: Delete arm64/amd64 tag
-        run: |
-          docker buildx imagetools rm $IMAGE_NAME:${{ github.sha }}-arm64
-          docker buildx imagetools rm $IMAGE_NAME:${{ github.sha }}-amd64
