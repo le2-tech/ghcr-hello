@@ -1,8 +1,6 @@
 name: Publish image to Docker Hub
 
 on:
-  # push:
-  #   branches: ["main"]
   workflow_dispatch:
 
 jobs:
@@ -13,11 +11,9 @@ jobs:
           - arch: amd64
             runner: ubuntu-22.04
             platform: linux/amd64
-            tag: coolcry/test:${{ github.sha }}-amd64
           - arch: arm64
             runner: ubuntu-22.04-arm
             platform: linux/arm64
-            tag: coolcry/test:${{ github.sha }}-arm64
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v5
@@ -32,9 +28,7 @@ jobs:
           file: ./docker-alpine/Dockerfile
           platforms: ${{ matrix.platform }}
           push: true
-          tags: ${{ matrix.tag }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          tags: coolcry/test:${{ github.sha }}-${{ matrix.arch }}
 
   manifest:
     needs: build
@@ -51,7 +45,6 @@ jobs:
             -t coolcry/test:${{ github.sha }} \
             coolcry/test:${{ github.sha }}-amd64 \
             coolcry/test:${{ github.sha }}-arm64
-          # 可选：再标记一个易记标签
           docker buildx imagetools create \
             -t coolcry/test:latest \
             coolcry/test:${{ github.sha }}
