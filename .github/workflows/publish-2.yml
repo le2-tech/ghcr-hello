@@ -25,13 +25,13 @@ jobs:
             platform: linux/arm64
     runs-on: ${{ matrix.runner }}
     steps:
-      - uses: actions/checkout@master
-      - uses: docker/setup-buildx-action@master
-      - uses: docker/login-action@master
+      - uses: actions/checkout@main
+      - uses: docker/setup-buildx-action@main
+      - uses: docker/login-action@main
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/build-push-action@master
+      - uses: docker/build-push-action@main
         with:
           context: .
           file: ./docker-alpine/Dockerfile
@@ -43,8 +43,8 @@ jobs:
     needs: build
     runs-on: ubuntu-22.04
     steps:
-      - uses: docker/setup-buildx-action@master
-      - uses: docker/login-action@master
+      - uses: docker/setup-buildx-action@main
+      - uses: docker/login-action@main
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
