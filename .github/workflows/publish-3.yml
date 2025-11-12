@@ -69,7 +69,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./docker-alpine/Dockerfile
           platforms: ${{ matrix.platform }} # 原生构建，无 QEMU
           push: ${{ github.event_name != 'pull_request' }}
           # 临时标签，用于后续合成 manifest
@@ -98,7 +97,7 @@ jobs:
           IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           TAGS: ${{ needs.meta.outputs.tags }}
         run: |
-          set -Eeuo pipefail
+          set -Eeuxo pipefail
 
           # 直接把 metadata 的“完整引用”作为 --tag 传入；去掉空行与首尾空白
           TAG_ARGS=""
