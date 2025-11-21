@@ -50,7 +50,7 @@ jobs:
           - short: arm64
             # os: [self-hosted, macOS, ARM64]
             # os: [macos-latest]
-            os: [Windows, arm64]
+            os: [windows-11-arm]
             # platform: linux/arm64
     steps:
       - uses: actions/checkout@v5
