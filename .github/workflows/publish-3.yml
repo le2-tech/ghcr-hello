@@ -47,11 +47,11 @@ jobs:
           - short: amd64
             os: ubuntu-latest
             # arch: x64
-            # platform: linux
+            platform: linux/amd64
           - short: arm64
             os: [self-hosted, macOS, ARM64]
             # arch: arm64
-            # platform: darwin
+            platform: linux/arm64
     # strategy:
     #   fail-fast: false
     #   matrix:
