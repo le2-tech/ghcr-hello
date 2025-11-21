@@ -48,9 +48,7 @@ jobs:
           #   os: ubuntu-latest
           #   platform: linux/amd64
           - short: arm64
-            # os: [self-hosted, macOS, ARM64]
-            # os: [macos-latest]
-            os: [windows-11-arm]
+            os: [self-hosted, macOS, ARM64]
             # platform: linux/arm64
     steps:
       - uses: actions/checkout@v5
