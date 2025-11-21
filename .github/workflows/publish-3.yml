@@ -49,7 +49,8 @@ jobs:
           #   platform: linux/amd64
           - short: arm64
             # os: [self-hosted, macOS, ARM64]
-            os: [macos-latest]
+            # os: [macos-latest]
+            os: [Windows, arm64]
             # platform: linux/arm64
     steps:
       - uses: actions/checkout@v5
