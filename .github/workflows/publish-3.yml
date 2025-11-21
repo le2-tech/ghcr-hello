@@ -44,9 +44,9 @@ jobs:
     strategy:
       matrix:
         include:
-          # - short: amd64
-          #   os: ubuntu-latest
-          #   platform: linux/amd64
+          - short: amd64
+            os: ubuntu-latest
+            # platform: linux/amd64
           - short: arm64
             os: [self-hosted, macOS, ARM64]
             # platform: linux/arm64
