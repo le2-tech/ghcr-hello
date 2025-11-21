@@ -46,11 +46,11 @@ jobs:
         include:
           - short: amd64
             os: ubuntu-latest
-            arch: x64
+            # arch: x64
             platform: linux
           - short: arm64
             os: [self-hosted, macOS, ARM64]
-            arch: arm64
+            # arch: arm64
             platform: darwin
     # strategy:
     #   fail-fast: false
