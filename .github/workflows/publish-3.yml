@@ -44,25 +44,13 @@ jobs:
     strategy:
       matrix:
         include:
-          - short: amd64
-            os: ubuntu-latest
-            # arch: x64
-            platform: linux/amd64
+          # - short: amd64
+          #   os: ubuntu-latest
+          #   platform: linux/amd64
           - short: arm64
-            os: [self-hosted, macOS, ARM64]
-            # arch: arm64
-            platform: linux/arm64
-    # strategy:
-    #   fail-fast: false
-    #   matrix:
-    #     include:
-    #       - short: amd64
-    #         platform: linux/amd64
-    #         runs_on: ubuntu-24.04 # GitHub 托管 x86_64
-    #       - short: arm64
-    #         platform: linux/arm64
-    #         runs_on: ubuntu-24.04-arm # GitHub 托管 ARM64
-    # runs-on: ${{ matrix.runs_on }}
+            # os: [self-hosted, macOS, ARM64]
+            os: [macos-latest, ARM64]
+            # platform: linux/arm64
     steps:
       - uses: actions/checkout@v5
 
