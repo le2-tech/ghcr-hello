@@ -48,11 +48,10 @@ jobs:
       matrix:
         include:
           - short: amd64
-            os: ubuntu-latest
-            # platform: linux/amd64
+            os: ubuntu-24.04
           - short: arm64
-            os: [self-hosted, macOS, ARM64]
-            # platform: linux/arm64
+            # os: [self-hosted, macOS, ARM64]
+            os: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v5
 
